@@ -57,3 +57,13 @@ for dir in "${directories[@]}"; do
     read_files "${project_dir}/${dir}"
   fi
 done
+
+if [ -f $output_file ]; then
+    if [ -s $output_file ]; then
+        echo "The file '$output_file' exists and is not empty."
+    else
+        echo "The file '$output_file' exists but is empty."
+    fi
+else
+    echo "The file '$output_file' does not exist."
+fi
